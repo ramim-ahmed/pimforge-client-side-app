@@ -1,4 +1,5 @@
 import RootLayout from "@/layouts/RootLayout";
+import AddQuerie from "@/pages/AddQuerie";
 import Home from "@/pages/Home";
 import Login from "@/pages/Login";
 import MyRecommendations from "@/pages/MyRecommendations";
@@ -17,6 +18,10 @@ const routes = createBrowserRouter([
       {
         index: true,
         element: <Home />,
+      },
+      {
+        path: "add-querie",
+        element: <AddQuerie />,
       },
       {
         path: "/queries",

@@ -6,6 +6,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 import useAuth from "@/hooks/useAuth";
 import { Button } from "./ui/button";
+import { Link } from "react-router-dom";
 export default function UserProfile() {
   const { authUser, logout } = useAuth();
   return (
@@ -22,6 +23,13 @@ export default function UserProfile() {
           </div>
         </DropdownMenuTrigger>
         <DropdownMenuContent className="w-52">
+          <Link to="/add-querie">
+            <DropdownMenuItem>
+              <Button variant="outline" className="w-full">
+                Add Querie
+              </Button>
+            </DropdownMenuItem>
+          </Link>
           <DropdownMenuItem>
             <Button variant="outline" className="w-full">
               My Queries

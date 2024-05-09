@@ -6,7 +6,7 @@ export default function RecentQueries() {
       <div>
         <h1 className="text-center text-3xl font-semibold">Recent Queries</h1>
       </div>
-      <div className="grid grid-cols-4 gap-8 mt-20">
+      <div className="grid grid-cols-3 gap-8 mt-20">
         <Querie />
         <Querie />
         <Querie />

@@ -1,8 +1,11 @@
+import useAuth from "@/hooks/useAuth";
 import { Link, NavLink } from "react-router-dom";
+import UserProfile from "./UserProfile";
 
 export default function Nav() {
+  const { authUser } = useAuth();
   return (
-    <nav className="py-5 border-b">
+    <nav className="py-3 border-b">
       <div className="max-w-6xl mx-auto px-3 flex justify-between items-center">
         <Link to="/">
           <h1 className="font-bold text-xl">PIM FORGE</h1>
@@ -31,16 +34,20 @@ export default function Nav() {
             </NavLink>
           </div>
           <div>
-            <NavLink
-              to="/login"
-              className={({ isActive }) =>
-                isActive
-                  ? "bg-themeColor text-white px-3 duration-300 py-1 rounded"
-                  : "duration-300 py-1 px-3"
-              }
-            >
-              Login
-            </NavLink>
+            {authUser ? (
+              <UserProfile />
+            ) : (
+              <NavLink
+                to="/login"
+                className={({ isActive }) =>
+                  isActive
+                    ? "bg-themeColor text-white px-3 duration-300 py-1 rounded"
+                    : "duration-300 py-1 px-3"
+                }
+              >
+                Login
+              </NavLink>
+            )}
           </div>
         </div>
       </div>

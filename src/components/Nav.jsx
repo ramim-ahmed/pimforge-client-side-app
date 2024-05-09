@@ -14,7 +14,7 @@ export default function Nav() {
               className={({ isActive }) =>
                 isActive
                   ? "bg-themeColor text-white px-3 duration-300 py-1 rounded"
-                  : " duration-300 py-1 px-3"
+                  : "duration-300 py-1 px-3"
               }
             >
               Home
@@ -24,7 +24,7 @@ export default function Nav() {
               className={({ isActive }) =>
                 isActive
                   ? "bg-themeColor text-white px-3 duration-300 py-1 rounded"
-                  : " duration-300 px-3 py-1"
+                  : "duration-300 px-3 py-1"
               }
             >
               Queries
@@ -36,7 +36,7 @@ export default function Nav() {
               className={({ isActive }) =>
                 isActive
                   ? "bg-themeColor text-white px-3 duration-300 py-1 rounded"
-                  : " duration-300 py-1 px-3"
+                  : "duration-300 py-1 px-3"
               }
             >
               Login

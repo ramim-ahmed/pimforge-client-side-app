@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import useAxios from "@/hooks/useAxios";
-import { useMutation, useQuery } from "@tanstack/react-query";
+import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { FaPlus } from "react-icons/fa6";
 import { useParams } from "react-router-dom";
 import { BarLoader } from "react-spinners";
@@ -26,13 +26,17 @@ export default function QuerieDetails() {
   const { id } = useParams();
   const { authUser } = useAuth();
   const axiosIntance = useAxios();
+  const queryClient = useQueryClient();
   const { data, isLoading } = useQuery({
-    queryKey: [id],
+    queryKey: ["querieDetails", id],
     queryFn: async () => await axiosIntance.get(`/queries/${id}`),
   });
   const { mutateAsync: addRecommendation } = useMutation({
     mutationFn: async (data) =>
       await axiosIntance.post("/recommendations/create-new", data),
+    onSuccess: () => {
+      queryClient.invalidateQueries(["querieDetails"]);
+    },
   });
 
   if (isLoading) {

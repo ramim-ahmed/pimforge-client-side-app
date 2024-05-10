@@ -1,4 +1,5 @@
 import PropTypes from "prop-types";
+import { Button } from "./ui/button";
 
 export default function Querie({ item }) {
   const {
@@ -9,6 +10,7 @@ export default function Querie({ item }) {
     brand,
     queryTitle,
     boyCottingReason,
+    recommendationCount,
   } = item || {};
   const { name: userName, image } = user || {};
   return (
@@ -22,8 +24,12 @@ export default function Querie({ item }) {
           <h1 className="text-xl font-medium">{name}</h1>
           <p>{queryTitle}</p>
           <p>
-            <strong>Alternative Reasons:</strong>
+            <strong>Alternative Reasons: </strong>
             {boyCottingReason}
+          </p>
+          <p>
+            <strong>Recommendation Count: </strong>
+            {recommendationCount}
           </p>
         </div>
         <div className="flex items-center space-x-3 mt-4">
@@ -38,6 +44,9 @@ export default function Querie({ item }) {
               {new Date(Number(dateAndTime)).toLocaleDateString()}
             </p>
           </div>
+        </div>
+        <div className="mt-4">
+          <Button className="w-full">Add Recommendation</Button>
         </div>
       </div>
     </div>

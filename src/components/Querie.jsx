@@ -1,8 +1,10 @@
 import PropTypes from "prop-types";
 import { Button } from "./ui/button";
+import { Link } from "react-router-dom";
 
 export default function Querie({ item }) {
   const {
+    _id,
     user,
     dateAndTime,
     name,
@@ -45,8 +47,12 @@ export default function Querie({ item }) {
             </p>
           </div>
         </div>
-        <div className="mt-4">
-          <Button className="w-full">Add Recommendation</Button>
+        <div>
+          <Link to={`/querie-details/${_id}`}>
+            <div className="mt-4">
+              <Button className="w-full">Add Recommendation</Button>
+            </div>
+          </Link>
         </div>
       </div>
     </div>

@@ -4,6 +4,7 @@ import Home from "@/pages/Home";
 import Login from "@/pages/Login";
 import MyRecommendations from "@/pages/MyRecommendations";
 import NotFound from "@/pages/NotFound";
+import QuerieDetails from "@/pages/QuerieDetails";
 import Queries from "@/pages/Queries";
 import RecommendationsForMe from "@/pages/RecommendationsForMe";
 import Register from "@/pages/Register";
@@ -26,6 +27,10 @@ const routes = createBrowserRouter([
       {
         path: "/queries",
         element: <Queries />,
+      },
+      {
+        path: "/querie-details/:id",
+        element: <QuerieDetails />,
       },
       {
         path: "/my-queries",

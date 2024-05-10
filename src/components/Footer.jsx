@@ -42,7 +42,7 @@ export default function Footer() {
                 <a className="text-white hover:text-gray-800">About</a>
               </li>
               <li>
-                <a className="text-white hover:text-gray-800">Tourists Lists</a>
+                <a className="text-white hover:text-gray-800">Queries</a>
               </li>
               <li>
                 <a className="text-white hover:text-gray-800">Contact</a>

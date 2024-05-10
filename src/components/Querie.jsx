@@ -17,9 +17,9 @@ export default function Querie({ item }) {
         <img className="h-[200px] object-cover" src={photo} alt={name} />
       </div>
       <div>
-        <div className="mt-8">
+        <div className="mt-8 space-y-1">
           <button>{brand}</button>
-          <h1 className="text-2xl font-medium">{name}</h1>
+          <h1 className="text-xl font-medium">{name}</h1>
           <p>{queryTitle}</p>
           <p>
             <strong>Alternative Reasons:</strong>

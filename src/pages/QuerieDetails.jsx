@@ -132,7 +132,7 @@ export default function QuerieDetails() {
               <DialogContent className="sm:max-w-3xl">
                 <DialogHeader className="px-4">
                   <DialogTitle className="text-center">
-                    Add Your Alternative Product Info.
+                    Add Your Recommendation Product Info.
                   </DialogTitle>
                 </DialogHeader>
                 <div>

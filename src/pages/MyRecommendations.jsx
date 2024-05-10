@@ -69,8 +69,8 @@ export default function MyRecommendations() {
     });
   };
   return (
-    <div className="px-3 bg-gray-50 my-10">
-      <div className="max-w-6xl mx-auto bg-white p-10">
+    <div className="px-3 bg-gray-50 py-10 min-h-screen">
+      <div className="max-w-6xl mx-auto bg-white p-10 border">
         <div>
           <h1 className="text-xl font-medium">My Recommendations</h1>
         </div>
@@ -85,29 +85,43 @@ export default function MyRecommendations() {
                 <TableHead>Action</TableHead>
               </TableRow>
             </TableHeader>
-            <TableBody>
-              {data?.data?.data?.map(
-                ({ _id, productName, queryUser, name, querieId }, idx) => (
-                  <TableRow key={_id}>
-                    <TableCell>{idx + 1}</TableCell>
-                    <TableCell>{queryUser.name}</TableCell>
-                    <TableCell>{productName}</TableCell>
-                    <TableCell>{name}</TableCell>
-                    <TableCell>
-                      <Button
-                        onClick={() =>
-                          handleDeleteRecommendation(_id, querieId)
-                        }
-                        variant="outline"
-                        size="icon"
-                      >
-                        <MdDelete className="h-6 w-6 text-red-500" />
-                      </Button>
-                    </TableCell>
-                  </TableRow>
-                )
-              )}
-            </TableBody>
+            {data?.data?.data?.length === 0 ? (
+              <TableBody>
+                <TableRow>
+                  <TableCell></TableCell>
+                  <TableCell></TableCell>
+                  <TableCell></TableCell>
+                  <TableCell className="text-red-500">
+                    Your Recommendation Empty!!
+                  </TableCell>
+                  <TableCell></TableCell>
+                </TableRow>
+              </TableBody>
+            ) : (
+              <TableBody>
+                {data?.data?.data?.map(
+                  ({ _id, productName, queryUser, name, querieId }, idx) => (
+                    <TableRow key={_id}>
+                      <TableCell>{idx + 1}</TableCell>
+                      <TableCell>{queryUser.name}</TableCell>
+                      <TableCell>{productName}</TableCell>
+                      <TableCell>{name}</TableCell>
+                      <TableCell>
+                        <Button
+                          onClick={() =>
+                            handleDeleteRecommendation(_id, querieId)
+                          }
+                          variant="outline"
+                          size="icon"
+                        >
+                          <MdDelete className="h-6 w-6 text-red-500" />
+                        </Button>
+                      </TableCell>
+                    </TableRow>
+                  )
+                )}
+              </TableBody>
+            )}
           </Table>
         </div>
       </div>

@@ -42,11 +42,13 @@ export default function UserProfile() {
               </Button>
             </DropdownMenuItem>
           </Link>
-          <DropdownMenuItem>
-            <Button variant="outline" className="w-full">
-              Recommendations For Me
-            </Button>
-          </DropdownMenuItem>
+          <Link to="/recommendations-for-me">
+            <DropdownMenuItem>
+              <Button variant="outline" className="w-full">
+                Recommendations For Me
+              </Button>
+            </DropdownMenuItem>
+          </Link>
           <DropdownMenuItem>
             <Button
               onClick={() => logout()}

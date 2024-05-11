@@ -2,7 +2,7 @@ import { Button } from "@/components/ui/button";
 import useAxios from "@/hooks/useAxios";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { FaPlus } from "react-icons/fa6";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { BarLoader } from "react-spinners";
 
 import {
@@ -17,12 +17,13 @@ import { Input } from "@/components/ui/input";
 import useAuth from "@/hooks/useAuth";
 import { useRef } from "react";
 import toast from "react-hot-toast";
-
+import { FaArrowLeft } from "react-icons/fa6";
 export default function QuerieDetails() {
   const recommendationTitleRef = useRef();
   const prductNameRef = useRef();
   const productImageRef = useRef();
   const productReasonRef = useRef();
+  const navigate = useNavigate();
   const { id } = useParams();
   const { authUser } = useAuth();
   const axiosIntance = useAxios();
@@ -84,8 +85,18 @@ export default function QuerieDetails() {
       toast.error("Recommendation Added Failed!!");
     }
   };
+  const handleGoBack = () => {
+    navigate(-1 || "/");
+  };
   return (
     <div className="my-10 px-3">
+      <div
+        onClick={() => handleGoBack()}
+        className="max-w-6xl cursor-pointer mx-auto flex items-center space-x-2 py-3"
+      >
+        <FaArrowLeft className="w-6 h-6" />
+        <p>Go Back</p>
+      </div>
       <div className="max-w-6xl grid grid-cols-12 mx-auto p-5 bg-gray-50">
         <div className="col-span-5">
           <div className="bg-white p-3">

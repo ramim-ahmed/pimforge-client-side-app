@@ -30,11 +30,13 @@ export default function UserProfile() {
               </Button>
             </DropdownMenuItem>
           </Link>
-          <DropdownMenuItem>
-            <Button variant="outline" className="w-full">
-              My Queries
-            </Button>
-          </DropdownMenuItem>
+          <Link to="/my-queries">
+            <DropdownMenuItem>
+              <Button variant="outline" className="w-full">
+                My Queries
+              </Button>
+            </DropdownMenuItem>
+          </Link>
           <Link to="/my-recommendations">
             <DropdownMenuItem>
               <Button variant="outline" className="w-full">

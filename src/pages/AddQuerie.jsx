@@ -39,14 +39,14 @@ export default function AddQuerie() {
       reset();
       setLoading(false);
     } catch (error) {
-      toast.error(error.message);
+      toast.error("Querie Created To Failed!!");
       setLoading(false);
     }
   };
   return (
     <>
       <Helmet>
-        <title>Add Querie</title>
+        <title>PIM Forge | Add Querie</title>
       </Helmet>
       <div className="max-w-6xl mx-auto bg-[#f1f0f042]  dark:bg-dark-color border-baseColor border border-opacity-15 my-20 lg:p-10 px-3 py-8 ">
         <h1 className="text-center text-xl font-semibold">Add New Querie</h1>

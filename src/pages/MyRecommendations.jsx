@@ -92,7 +92,7 @@ export default function MyRecommendations() {
                   <TableCell></TableCell>
                   <TableCell></TableCell>
                   <TableCell className="text-red-500">
-                    Your Recommendation Empty!!
+                    My Recommendation Empty!!
                   </TableCell>
                   <TableCell></TableCell>
                 </TableRow>

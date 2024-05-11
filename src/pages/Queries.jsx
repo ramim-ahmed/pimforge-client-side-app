@@ -5,12 +5,21 @@ import { useQuery } from "@tanstack/react-query";
 import useAxios from "@/hooks/useAxios";
 import { BarLoader } from "react-spinners";
 import Querie from "@/components/Querie";
+import { useRef, useState } from "react";
+import { Input } from "@/components/ui/input";
 export default function Queries() {
   const axiosIntance = useAxios();
+  const searchInputRef = useRef();
+  const [searchValue, setSearchValue] = useState("");
   const { data, isLoading } = useQuery({
-    queryKey: ["queries"],
-    queryFn: async () => await axiosIntance.get("/queries"),
+    queryKey: ["queries", searchValue],
+    queryFn: async () =>
+      await axiosIntance.get(`/queries?searchTerm=${searchValue}`),
   });
+
+  const handleSearch = () => {
+    setSearchValue(searchInputRef.current.value);
+  };
 
   if (isLoading) {
     return (
@@ -19,6 +28,7 @@ export default function Queries() {
       </div>
     );
   }
+
   return (
     <div className="py-10">
       <div className="max-w-6xl mx-auto px-3">
@@ -37,7 +47,19 @@ export default function Queries() {
             </div>
           </div>
         </div>
-        <div className="grid grid-cols-3 gap-8 mt-10">
+        <div className="pt-10">
+          <div className="w-2/3 flex items-center">
+            <Input
+              ref={searchInputRef}
+              className="rounded-r-none"
+              placeholder="search product name..."
+            />
+            <Button onClick={() => handleSearch()} className="rounded-l-none">
+              Search
+            </Button>
+          </div>
+        </div>
+        <div className="grid grid-cols-3 gap-8 mt-6">
           {data.data?.data?.map((item) => (
             <Querie key={item._id} item={item} />
           ))}

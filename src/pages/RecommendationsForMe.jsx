@@ -31,8 +31,8 @@ export default function RecommendationsForMe() {
 
   console.log(data);
   return (
-    <div className="px-3 bg-gray-50 py-10 min-h-screen">
-      <div className="max-w-6xl mx-auto bg-white p-10 border">
+    <div className="px-3 bg-gray-50 dark:bg-[#020817] py-10 min-h-screen">
+      <div className="max-w-6xl mx-auto bg-white dark:bg-[#020817c9] p-10 border">
         <div>
           <h1 className="text-xl font-medium">Recommendations For Me.</h1>
         </div>

@@ -26,7 +26,7 @@ export default function Banner() {
             <div className="text-center bg-gray-700 h-full w-full bg-opacity-30 flex justify-center items-center">
               <div className="space-y-4">
                 <h1 className="text-2xl text-white">Welcome To</h1>
-                <h1 className="text-6xl font-bold text-white">
+                <h1 className="lg:text-6xl text-4xl font-bold text-white">
                   PIM FORGE ALWAYS CONNECT US.
                 </h1>
                 <Button className="w-52 text-base bg-themeColor">
@@ -47,7 +47,7 @@ export default function Banner() {
             <div className="text-center bg-gray-700 h-full w-full bg-opacity-30 flex justify-center items-center">
               <div className="space-y-4">
                 <h1 className="text-2xl text-white">Welcome To</h1>
-                <h1 className="text-6xl font-bold text-white">
+                <h1 className="lg:text-6xl text-4xl font-bold text-white">
                   PIM FORGE ALWAYS CONNECT US.
                 </h1>
                 <Button className="w-52 text-base bg-themeColor">
@@ -68,7 +68,7 @@ export default function Banner() {
             <div className="text-center bg-gray-700 h-full w-full bg-opacity-30 flex justify-center items-center">
               <div className="space-y-4">
                 <h1 className="text-2xl text-white">Welcome To</h1>
-                <h1 className="text-6xl font-bold text-white">
+                <h1 className="lg:text-6xl text-4xl font-bold text-white">
                   PIM FORGE ALWAYS CONNECT US.
                 </h1>
                 <Button className="w-52 text-base bg-themeColor">

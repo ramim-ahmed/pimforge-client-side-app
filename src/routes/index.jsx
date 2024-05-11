@@ -10,6 +10,7 @@ import Queries from "@/pages/Queries";
 import RecommendationsForMe from "@/pages/RecommendationsForMe";
 import Register from "@/pages/Register";
 import UpdateQuerie from "@/pages/UpdateQuerie";
+import PrivateRoute from "@/privateRoute/PrivateRoute";
 import { createBrowserRouter } from "react-router-dom";
 
 const routes = createBrowserRouter([
@@ -24,7 +25,11 @@ const routes = createBrowserRouter([
       },
       {
         path: "add-querie",
-        element: <AddQuerie />,
+        element: (
+          <PrivateRoute>
+            <AddQuerie />
+          </PrivateRoute>
+        ),
       },
       {
         path: "/queries",
@@ -32,23 +37,43 @@ const routes = createBrowserRouter([
       },
       {
         path: "/querie-details/:id",
-        element: <QuerieDetails />,
+        element: (
+          <PrivateRoute>
+            <QuerieDetails />
+          </PrivateRoute>
+        ),
       },
       {
         path: "/querie-update/:id",
-        element: <UpdateQuerie />,
+        element: (
+          <PrivateRoute>
+            <UpdateQuerie />
+          </PrivateRoute>
+        ),
       },
       {
         path: "/my-queries",
-        element: <MyQueries />,
+        element: (
+          <PrivateRoute>
+            <MyQueries />
+          </PrivateRoute>
+        ),
       },
       {
         path: "/my-recommendations",
-        element: <MyRecommendations />,
+        element: (
+          <PrivateRoute>
+            <MyRecommendations />
+          </PrivateRoute>
+        ),
       },
       {
         path: "/recommendations-for-me",
-        element: <RecommendationsForMe />,
+        element: (
+          <PrivateRoute>
+            <RecommendationsForMe />
+          </PrivateRoute>
+        ),
       },
       {
         path: "/login",

@@ -1,6 +1,7 @@
 import useAuth from "@/hooks/useAuth";
 import { Link, NavLink } from "react-router-dom";
 import UserProfile from "./UserProfile";
+import ThemeMode from "./ThemeMode";
 
 export default function Nav() {
   const { authUser } = useAuth();
@@ -48,6 +49,9 @@ export default function Nav() {
                 Login
               </NavLink>
             )}
+          </div>
+          <div>
+            <ThemeMode />
           </div>
         </div>
       </div>

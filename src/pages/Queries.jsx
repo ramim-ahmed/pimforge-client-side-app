@@ -7,9 +7,12 @@ import { BarLoader } from "react-spinners";
 import Querie from "@/components/Querie";
 import { useRef, useState } from "react";
 import { Input } from "@/components/ui/input";
+import { BsGrid3X2GapFill } from "react-icons/bs";
+import { HiViewGrid } from "react-icons/hi";
 export default function Queries() {
   const axiosIntance = useAxios();
   const searchInputRef = useRef();
+  const [isLayout, setIsLayout] = useState(false);
   const [searchValue, setSearchValue] = useState("");
   const { data, isLoading } = useQuery({
     queryKey: ["queries", searchValue],
@@ -40,7 +43,7 @@ export default function Queries() {
             </div>
           </div>
         </div>
-        <div className="pt-10">
+        <div className="pt-10 flex justify-between items-center">
           <div className="w-2/3 flex items-center">
             <Input
               ref={searchInputRef}
@@ -51,13 +54,32 @@ export default function Queries() {
               Search
             </Button>
           </div>
+          <div className="hidden sm:block">
+            {isLayout ? (
+              <BsGrid3X2GapFill
+                onClick={() => setIsLayout(!isLayout)}
+                className="w-10 h-10 cursor-pointer"
+              />
+            ) : (
+              <HiViewGrid
+                onClick={() => setIsLayout(!isLayout)}
+                className="w-10 h-10 cursor-pointer"
+              />
+            )}
+          </div>
         </div>
         {isLoading ? (
           <div className="flex justify-center items-center mt-6">
             <BarLoader />
           </div>
         ) : (
-          <div className="grid grid-cols-3 gap-8 mt-6">
+          <div
+            className={`grid ${
+              isLayout
+                ? "grid-cols-2"
+                : "lg:grid-cols-3 md:grid-cols-2 grid-cols-1"
+            } gap-8 mt-6`}
+          >
             {data.data?.data?.map((item) => (
               <Querie key={item._id} item={item} />
             ))}

@@ -5,13 +5,15 @@ import { useState } from "react";
 import { Helmet } from "react-helmet-async";
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
-import { useParams } from "react-router-dom";
+import { FaArrowLeft } from "react-icons/fa6";
+import { useNavigate, useParams } from "react-router-dom";
 import { BarLoader } from "react-spinners";
 
 export default function UpdateQuerie() {
   const { id } = useParams();
   const axiosIntance = useAxios();
   const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
   const { data, isLoading } = useQuery({
     queryKey: ["querieDetails", id],
     queryFn: async () => await axiosIntance.get(`/queries/${id}`),
@@ -46,12 +48,23 @@ export default function UpdateQuerie() {
     );
   }
 
+  const handleGoBack = () => {
+    navigate(-1 || "/");
+  };
+
   return (
-    <>
+    <div className="my-10 px-3">
       <Helmet>
-        <title>PIM Forge | Add Querie</title>
+        <title>PIM Forge | {name}</title>
       </Helmet>
-      <div className="max-w-6xl mx-auto bg-[#f1f0f042]  dark:bg-dark-color border-baseColor border border-opacity-15 my-20 lg:p-10 px-3 py-8 ">
+      <div
+        onClick={() => handleGoBack()}
+        className="max-w-6xl cursor-pointer mx-auto flex items-center space-x-2 py-3"
+      >
+        <FaArrowLeft className="w-6 h-6" />
+        <p>Go Back</p>
+      </div>
+      <div className="max-w-6xl mx-auto bg-[#f1f0f042]  dark:bg-dark-color border-baseColor border border-opacity-15 lg:p-10 px-3 py-8 ">
         <h1 className="text-center text-xl font-semibold">
           Update Querie | {name}
         </h1>
@@ -144,6 +157,6 @@ export default function UpdateQuerie() {
           </div>
         </form>
       </div>
-    </>
+    </div>
   );
 }

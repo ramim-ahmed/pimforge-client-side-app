@@ -44,11 +44,11 @@ export default function AddQuerie() {
     }
   };
   return (
-    <>
+    <div className="px-3 my-10">
       <Helmet>
         <title>PIM Forge | Add Querie</title>
       </Helmet>
-      <div className="max-w-6xl mx-auto bg-[#f1f0f042]  dark:bg-dark-color border-baseColor border border-opacity-15 my-20 lg:p-10 px-3 py-8 ">
+      <div className="max-w-6xl mx-auto bg-[#f1f0f042]  dark:bg-dark-color border-baseColor border border-opacity-15 lg:p-10 px-3 py-8 ">
         <h1 className="text-center text-xl font-semibold">Add New Querie</h1>
         <form onSubmit={handleSubmit(handleAddNewQuery)} className="mt-5">
           <div className="grid grid-cols-12 gap-x-8">
@@ -149,6 +149,6 @@ export default function AddQuerie() {
           </div>
         </form>
       </div>
-    </>
+    </div>
   );
 }

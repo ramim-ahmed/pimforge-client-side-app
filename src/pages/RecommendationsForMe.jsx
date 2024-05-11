@@ -28,6 +28,8 @@ export default function RecommendationsForMe() {
       </div>
     );
   }
+
+  console.log(data);
   return (
     <div className="px-3 bg-gray-50 py-10 min-h-screen">
       <div className="max-w-6xl mx-auto bg-white p-10 border">

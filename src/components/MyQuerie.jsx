@@ -4,8 +4,12 @@ import { MdDelete } from "react-icons/md";
 import { FaRegEdit } from "react-icons/fa";
 import { PiEyeBold } from "react-icons/pi";
 import { Link } from "react-router-dom";
+import useAxios from "@/hooks/useAxios";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
+import Swal from "sweetalert2";
 
 export default function MyQuerie({ item }) {
+  const axiosIntance = useAxios();
   const {
     _id,
     user,
@@ -18,6 +22,43 @@ export default function MyQuerie({ item }) {
     recommendationCount,
   } = item || {};
   const { name: userName, image } = user || {};
+  const queryClient = useQueryClient();
+
+  const { mutateAsync: deleteQuerie } = useMutation({
+    mutationFn: async (id) => await axiosIntance.delete(`/queries/${id}`),
+    onSuccess: () => {
+      queryClient.invalidateQueries(["my-queries"]);
+    },
+  });
+
+  const handleDeleteQuerie = async (id) => {
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then(async (result) => {
+      if (result.isConfirmed) {
+        try {
+          await deleteQuerie(id);
+          Swal.fire({
+            title: "Deleted!",
+            text: "Your Document has been deleted.",
+            icon: "success",
+          });
+        } catch (error) {
+          Swal.fire({
+            icon: "error",
+            title: error,
+            text: "Querie Delete Failed!!",
+          });
+        }
+      }
+    });
+  };
   return (
     <div className="border p-3 flex flex-col justify-between rounded-md">
       <div className="flex justify-center bg-gray-50 p-4">
@@ -61,7 +102,11 @@ export default function MyQuerie({ item }) {
               <FaRegEdit className="h-6 w-6" />
             </Button>
           </Link>
-          <Button variant="outline" size="icon">
+          <Button
+            onClick={() => handleDeleteQuerie(_id)}
+            variant="outline"
+            size="icon"
+          >
             <MdDelete className="h-6 w-6" />
           </Button>
         </div>

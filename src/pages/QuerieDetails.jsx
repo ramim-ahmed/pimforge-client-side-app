@@ -18,6 +18,7 @@ import useAuth from "@/hooks/useAuth";
 import { useRef } from "react";
 import toast from "react-hot-toast";
 import { FaArrowLeft } from "react-icons/fa6";
+import RecommendProduct from "@/components/RecommendProduct";
 export default function QuerieDetails() {
   const recommendationTitleRef = useRef();
   const prductNameRef = useRef();
@@ -32,6 +33,15 @@ export default function QuerieDetails() {
     queryKey: ["querieDetails", id],
     queryFn: async () => await axiosIntance.get(`/queries/${id}`),
   });
+
+  const { data: recommendationProuduct, isLoading: loading } = useQuery({
+    queryKey: ["recommendation-products", id],
+    queryFn: async () =>
+      await axiosIntance.get(
+        `/recommendations/reacommendation-on-product/${id}`
+      ),
+  });
+
   const { mutateAsync: addRecommendation } = useMutation({
     mutationFn: async (data) =>
       await axiosIntance.post("/recommendations/create-new", data),
@@ -188,6 +198,29 @@ export default function QuerieDetails() {
             </Dialog>
           </div>
         </div>
+      </div>
+      {/* alternative product */}
+      <div className="max-w-6xl mx-auto mt-6">
+        <div>
+          <h1 className="text-2xl font-medium">Recommendations Product</h1>
+        </div>
+        {loading ? (
+          <div className="flex justify-center mt-6">
+            <BarLoader />
+          </div>
+        ) : recommendationProuduct?.data?.data?.length === 0 ? (
+          <div>
+            <h1 className="text-xl text-red-500 font-medium">
+              Not Yet Recommendation Product
+            </h1>
+          </div>
+        ) : (
+          <div className="mt-6 grid grid-cols-3 gap-8">
+            {recommendationProuduct?.data?.data?.map((item) => (
+              <RecommendProduct key={item._id} item={item} />
+            ))}
+          </div>
+        )}
       </div>
     </div>
   );

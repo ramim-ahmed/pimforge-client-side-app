@@ -19,15 +19,8 @@ export default function Queries() {
 
   const handleSearch = () => {
     setSearchValue(searchInputRef.current.value);
+    searchInputRef.current.value = "";
   };
-
-  if (isLoading) {
-    return (
-      <div className="flex justify-center items-center min-h-screen">
-        <BarLoader />
-      </div>
-    );
-  }
 
   return (
     <div className="py-10">
@@ -59,11 +52,17 @@ export default function Queries() {
             </Button>
           </div>
         </div>
-        <div className="grid grid-cols-3 gap-8 mt-6">
-          {data.data?.data?.map((item) => (
-            <Querie key={item._id} item={item} />
-          ))}
-        </div>
+        {isLoading ? (
+          <div className="flex justify-center items-center mt-6">
+            <BarLoader />
+          </div>
+        ) : (
+          <div className="grid grid-cols-3 gap-8 mt-6">
+            {data.data?.data?.map((item) => (
+              <Querie key={item._id} item={item} />
+            ))}
+          </div>
+        )}
       </div>
     </div>
   );

@@ -107,7 +107,7 @@ export default function QuerieDetails() {
         <FaArrowLeft className="w-6 h-6" />
         <p>Go Back</p>
       </div>
-      <div className="max-w-6xl grid grid-cols-12 mx-auto p-5 bg-gray-50">
+      <div className="max-w-6xl grid grid-cols-12 mx-auto p-5 bg-gray-50 dark:dark:bg-[#020817]">
         <div className="col-span-5">
           <div className="bg-white p-3">
             <img className="h-[350px] object-cover" src={photo} alt="" />
@@ -137,7 +137,7 @@ export default function QuerieDetails() {
             />
             <div>
               <h1 className="text-xl font-medium">{userName}</h1>
-              <p className="-mt-1 text-sm text-gray-700">
+              <p className="-mt-1 text-sm text-gray-700 dark:text-gray-300">
                 {new Date(Number(dateAndTime)).toLocaleDateString()}
               </p>
             </div>
@@ -145,9 +145,9 @@ export default function QuerieDetails() {
           <div className="mt-4">
             <Dialog>
               <DialogTrigger asChild>
-                <Button className="bg-themeColor space-x-2">
+                <Button className="bg-themeColor dark:text-white dark:hover:text-themeColor  space-x-2">
                   <FaPlus className="w-6 h-6 text-white" />
-                  <span>Add Alternate Recommendation Product</span>
+                  <span className="">Add Alternate Recommendation Product</span>
                 </Button>
               </DialogTrigger>
               <DialogContent className="sm:max-w-3xl">

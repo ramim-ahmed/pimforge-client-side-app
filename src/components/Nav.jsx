@@ -9,10 +9,10 @@ export default function Nav() {
     <nav className="py-3 border-b">
       <div className="max-w-6xl mx-auto px-3 flex justify-between items-center">
         <Link to="/">
-          <h1 className="font-bold text-xl">PIM FORGE</h1>
+          <h1 className="font-bold lg:text-xl text-base">PIM FORGE</h1>
         </Link>
-        <div className="flex space-x-6 items-center">
-          <div className="flex space-x-6">
+        <div className="flex lg:space-x-6 space-x-3 items-center">
+          <div className="flex lg:space-x-6">
             <NavLink
               to="/"
               className={({ isActive }) =>

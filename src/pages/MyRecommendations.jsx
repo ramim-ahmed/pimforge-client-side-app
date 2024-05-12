@@ -17,11 +17,12 @@ export default function MyRecommendations() {
   const axiosIntance = useAxios();
   const { authUser } = useAuth();
   const queryClient = useQueryClient();
-  const { data, isLoading } = useQuery({
+  const { data, isLoading, isError } = useQuery({
     queryKey: ["myRecommendations"],
     queryFn: async () =>
       await axiosIntance.get(
-        `/recommendations/my-recommendations?email=${authUser?.email}`
+        `/recommendations/my-recommendations?email=${authUser?.email}`,
+        { withCredentials: true }
       ),
   });
 
@@ -36,6 +37,16 @@ export default function MyRecommendations() {
     return (
       <div className="flex min-h-screen items-center justify-center">
         <BarLoader />
+      </div>
+    );
+  }
+
+  if (isError) {
+    return (
+      <div>
+        <h1 className="text-xl flex justify-center text-red-500 mt-10">
+          Unauthorised Access!!
+        </h1>
       </div>
     );
   }

@@ -19,7 +19,9 @@ export default function UserProfile() {
               className="w-10 border border-themeColor h-10 rounded-full object-cover"
               alt=""
             />
-            <h3 className="font-medium">Hi, {authUser?.displayName}</h3>
+            <h3 className="font-medium hidden sm:block">
+              Hi, {authUser?.displayName}
+            </h3>
           </div>
         </DropdownMenuTrigger>
         <DropdownMenuContent className="w-52">

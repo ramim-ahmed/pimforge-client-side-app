@@ -1,6 +1,7 @@
 import PropTypes from "prop-types";
 import { Button } from "./ui/button";
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 
 export default function Querie({ item }) {
   const {
@@ -15,8 +16,14 @@ export default function Querie({ item }) {
     recommendationCount,
   } = item || {};
   const { name: userName, image } = user || {};
+
   return (
-    <div className="border p-3 flex flex-col justify-between rounded-md">
+    <motion.div
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      transition={{ duration: 0.5 }}
+      className="border p-3 flex flex-col justify-between rounded-md"
+    >
       <div className="flex justify-center bg-gray-50 p-4">
         <img className="h-[200px] object-cover" src={photo} alt={name} />
       </div>
@@ -55,7 +62,7 @@ export default function Querie({ item }) {
           </Link>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 }
 

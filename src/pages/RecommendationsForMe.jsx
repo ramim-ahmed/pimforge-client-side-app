@@ -13,11 +13,12 @@ import { BarLoader } from "react-spinners";
 export default function RecommendationsForMe() {
   const { authUser } = useAuth();
   const axiosIntance = useAxios();
-  const { data, isLoading } = useQuery({
+  const { data, isLoading, isError } = useQuery({
     queryKey: ["myRecommendations"],
     queryFn: async () =>
       await axiosIntance.get(
-        `/recommendations/recommendations-for-me?email=${authUser?.email}`
+        `/recommendations/recommendations-for-me?email=${authUser?.email}`,
+        { withCredentials: true }
       ),
   });
 
@@ -28,8 +29,15 @@ export default function RecommendationsForMe() {
       </div>
     );
   }
-
-  console.log(data);
+  if (isError) {
+    return (
+      <div>
+        <h1 className="text-xl flex justify-center text-red-500 mt-10">
+          Unauthorised Access!!
+        </h1>
+      </div>
+    );
+  }
   return (
     <div className="px-3 bg-gray-50 dark:bg-[#020817] py-10 min-h-screen">
       <div className="max-w-6xl mx-auto bg-white dark:bg-[#020817c9] p-10 border">

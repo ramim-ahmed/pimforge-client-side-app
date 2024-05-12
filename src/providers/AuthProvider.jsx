@@ -13,12 +13,14 @@ import {
 import { createContext, useEffect, useState } from "react";
 import toast from "react-hot-toast";
 import "../firebase";
+import useAxios from "@/hooks/useAxios";
 export const AuthContext = createContext();
 export default function AuthProvider({ children }) {
   const [authUser, setAuthUser] = useState(null);
   const [loading, setLoading] = useState(true);
   const [firebaseError, setFirebaseError] = useState("");
   const [firebaseLoginError, setFirebaseLoginError] = useState("");
+  const axiosIntance = useAxios();
   // signup
   const signup = async (email, password, username, photo_url = "") => {
     const auth = getAuth();
@@ -105,12 +107,22 @@ export default function AuthProvider({ children }) {
   //   observer auth state changes
   useEffect(() => {
     const auth = getAuth();
-    const unSubscribe = onAuthStateChanged(auth, (user) => {
+    const unSubscribe = onAuthStateChanged(auth, async (user) => {
       setAuthUser(user);
       setLoading(false);
+      const loggedUser = { email: user?.email };
+      if (user) {
+        await axiosIntance.post(`/token/access-token`, loggedUser, {
+          withCredentials: true,
+        });
+      } else {
+        await axiosIntance.post(`/token/clear-token`, loggedUser, {
+          withCredentials: true,
+        });
+      }
     });
     return () => unSubscribe();
-  }, []);
+  }, [axiosIntance]);
   const authValue = {
     signup,
     login,

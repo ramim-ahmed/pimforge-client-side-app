@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 import useAxios from "@/hooks/useAxios";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import Swal from "sweetalert2";
-
+import { motion } from "framer-motion";
 export default function MyQuerie({ item }) {
   const axiosIntance = useAxios();
   const {
@@ -60,7 +60,12 @@ export default function MyQuerie({ item }) {
     });
   };
   return (
-    <div className="border p-3 flex flex-col justify-between rounded-md">
+    <motion.div
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      transition={{ duration: 0.5 }}
+      className="border p-3 flex flex-col justify-between rounded-md"
+    >
       <div className="flex justify-center bg-gray-50 p-4">
         <img className="h-[200px] object-cover" src={photo} alt={name} />
       </div>
@@ -111,7 +116,7 @@ export default function MyQuerie({ item }) {
           </Button>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 }
 

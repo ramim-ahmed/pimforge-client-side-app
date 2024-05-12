@@ -9,16 +9,27 @@ import MyQuerie from "@/components/MyQuerie";
 export default function MyQueries() {
   const { authUser } = useAuth();
   const axiosIntance = useAxios();
-  const { data, isLoading } = useQuery({
+  const { data, isLoading, isError } = useQuery({
     queryKey: ["my-queries"],
     queryFn: async () =>
-      await axiosIntance.get(`/queries/my-queries?email=${authUser?.email}`),
+      await axiosIntance.get(`/queries/my-queries?email=${authUser?.email}`, {
+        withCredentials: true,
+      }),
   });
 
   if (isLoading) {
     return (
       <div className="flex justify-center items-center min-h-screen">
         <BarLoader />
+      </div>
+    );
+  }
+  if (isError) {
+    return (
+      <div>
+        <h1 className="text-xl flex justify-center text-red-500 mt-10">
+          Unauthorised Access!!
+        </h1>
       </div>
     );
   }
@@ -40,6 +51,7 @@ export default function MyQueries() {
             </div>
           </div>
         </div>
+
         {data?.data?.data?.length === 0 ? (
           <div className="flex justify-center items-center mt-10">
             <div className="text-center">

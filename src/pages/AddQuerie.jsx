@@ -48,7 +48,7 @@ export default function AddQuerie() {
       <Helmet>
         <title>PIM Forge | Add Querie</title>
       </Helmet>
-      <div className="max-w-6xl mx-auto bg-[#f1f0f042]  dark:bg-dark-color border-baseColor border border-opacity-15 lg:p-10 px-3 py-8 ">
+      <div className="max-w-6xl mx-auto bg-[#f1f0f042] dark:bg-[#020817] border-baseColor border border-opacity-15 lg:p-10 px-3 py-8 ">
         <h1 className="text-center text-xl font-semibold">Add New Querie</h1>
         <form onSubmit={handleSubmit(handleAddNewQuery)} className="mt-5">
           <div className="grid grid-cols-12 gap-x-8">
@@ -62,7 +62,7 @@ export default function AddQuerie() {
                 type="text"
                 id="name"
                 name="name"
-                className="w-full bg-white dark:bg-dark-color rounded border border-gray-300 focus:border-baseColor focus:ring-2 focus:ring-baseColor text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+                className="w-full bg-white dark:bg-[#020817] dark:text-white rounded border border-gray-300 focus:border-baseColor focus:ring-2 focus:ring-baseColor text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
               />
               {errors.name && (
                 <span className="text-red-500">This field is required</span>
@@ -81,7 +81,7 @@ export default function AddQuerie() {
                 placeholder="Enter Product Brand"
                 type="text"
                 id="location"
-                className="w-full bg-white rounded border border-gray-300 focus:border-baseColor focus:ring-2 focus:ring-baseColor text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out dark:bg-dark-color"
+                className="w-full bg-white rounded border border-gray-300 focus:border-baseColor focus:ring-2 focus:ring-baseColor text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out dark:bg-[#020817] dark:text-white"
               />
               {errors.brand && (
                 <span className="text-red-500">This field is required</span>
@@ -99,7 +99,7 @@ export default function AddQuerie() {
                 placeholder="Enter Product Image URL"
                 type="url"
                 id="photo"
-                className="w-full bg-white rounded border border-gray-300 focus:border-baseColor focus:ring-2 focus:ring-baseColor text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out dark:bg-dark-color"
+                className="w-full bg-white rounded border border-gray-300 focus:border-baseColor focus:ring-2 focus:ring-baseColor text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out dark:bg-[#020817] dark:text-white"
               />
               {errors.photo && (
                 <span className="text-red-500">This field is required</span>
@@ -117,7 +117,7 @@ export default function AddQuerie() {
                 placeholder="Enter Product Query Title"
                 type="text"
                 id="queryTitle"
-                className="w-full bg-white rounded border border-gray-300 focus:border-baseColor focus:ring-2 focus:ring-baseColor text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out dark:bg-dark-color"
+                className="w-full bg-white rounded border border-gray-300 focus:border-baseColor focus:ring-2 focus:ring-baseColor text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out dark:bg-[#020817] dark:text-white"
               />
               {errors.queryTitle && (
                 <span className="text-red-500">This field is required</span>
@@ -135,7 +135,7 @@ export default function AddQuerie() {
                 placeholder="Enter BoyCotting Reason Details"
                 type="text"
                 id="boyCottingReason"
-                className="w-full bg-white rounded border border-gray-300 focus:border-baseColor focus:ring-2 focus:ring-baseColor text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out dark:bg-dark-color"
+                className="w-full bg-white rounded border border-gray-300 focus:border-baseColor focus:ring-2 focus:ring-baseColor text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors  duration-200 ease-in-out dark:bg-[#020817] dark:text-white"
               />
               {errors.boyCottingReason && (
                 <span className="text-red-500">This field is required</span>
@@ -143,7 +143,10 @@ export default function AddQuerie() {
             </div>
           </div>
           <div className="flex justify-end">
-            <Button type="submit" className="w-56 bg-themeColor">
+            <Button
+              type="submit"
+              className="w-56 bg-themeColor dark:text-white"
+            >
               {loading ? <BarLoader color="#ffffff" /> : "Add Query"}
             </Button>
           </div>

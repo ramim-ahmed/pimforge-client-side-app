@@ -64,7 +64,7 @@ export default function UpdateQuerie() {
         <FaArrowLeft className="w-6 h-6" />
         <p>Go Back</p>
       </div>
-      <div className="max-w-6xl mx-auto bg-[#f1f0f042]  dark:bg-dark-color border-baseColor border border-opacity-15 lg:p-10 px-3 py-8 ">
+      <div className="max-w-6xl mx-auto bg-[#f1f0f042] dark:bg-[#020817] border-baseColor border border-opacity-15 lg:p-10 px-3 py-8 ">
         <h1 className="text-center text-xl font-semibold">
           Update Querie | {name}
         </h1>
@@ -81,7 +81,7 @@ export default function UpdateQuerie() {
                 type="text"
                 id="name"
                 name="name"
-                className="w-full bg-white dark:bg-dark-color rounded border border-gray-300 focus:border-baseColor focus:ring-2 focus:ring-baseColor text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+                className="w-full bg-white dark:bg-dark-color rounded border border-gray-300 dark:bg-[#020817] focus:border-baseColor focus:ring-2 focus:ring-baseColor text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out dark:text-white"
               />
             </div>
 
@@ -98,7 +98,7 @@ export default function UpdateQuerie() {
                 defaultValue={brand}
                 type="text"
                 id="location"
-                className="w-full bg-white rounded border border-gray-300 focus:border-baseColor focus:ring-2 focus:ring-baseColor text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out dark:bg-dark-color"
+                className="w-full bg-white rounded border border-gray-300 focus:border-baseColor focus:ring-2 focus:ring-baseColor text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors dark:bg-[#020817] duration-200 ease-in-out dark:bg-dark-color dark:text-white"
               />
             </div>
             <div className=" mb-4 lg:col-span-6 col-span-12">
@@ -114,7 +114,7 @@ export default function UpdateQuerie() {
                 defaultValue={photo}
                 type="url"
                 id="photo"
-                className="w-full bg-white rounded border border-gray-300 focus:border-baseColor focus:ring-2 focus:ring-baseColor text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out dark:bg-dark-color"
+                className="w-full bg-white rounded border border-gray-300 focus:border-baseColor focus:ring-2 focus:ring-baseColor text-base outline-none text-gray-700 py-1 px-3 leading-8 dark:bg-[#020817] transition-colors duration-200 ease-in-out dark:bg-dark-color dark:text-white"
               />
             </div>
             <div className=" mb-4 lg:col-span-6 col-span-12">
@@ -130,7 +130,7 @@ export default function UpdateQuerie() {
                 defaultValue={queryTitle}
                 type="text"
                 id="queryTitle"
-                className="w-full bg-white rounded border border-gray-300 focus:border-baseColor focus:ring-2 focus:ring-baseColor text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out dark:bg-dark-color"
+                className="w-full bg-white rounded border border-gray-300 focus:border-baseColor focus:ring-2 focus:ring-baseColor text-base outline-none dark:bg-[#020817] text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out dark:bg-dark-color dark:text-white"
               />
             </div>
             <div className=" mb-4 lg:col-span-6 col-span-12">
@@ -146,12 +146,15 @@ export default function UpdateQuerie() {
                 defaultValue={boyCottingReason}
                 type="text"
                 id="boyCottingReason"
-                className="w-full bg-white rounded border border-gray-300 focus:border-baseColor focus:ring-2 focus:ring-baseColor text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out dark:bg-dark-color"
+                className="w-full bg-white rounded border border-gray-300 focus:border-baseColor focus:ring-2 focus:ring-baseColor text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors dark:text-white dark:bg-[#020817] duration-200 ease-in-out dark:bg-dark-color"
               />
             </div>
           </div>
           <div className="flex justify-end">
-            <Button type="submit" className="w-56 bg-themeColor">
+            <Button
+              type="submit"
+              className="w-56 bg-themeColor dark:text-white"
+            >
               {loading ? <BarLoader color="#ffffff" /> : "Update Now"}
             </Button>
           </div>

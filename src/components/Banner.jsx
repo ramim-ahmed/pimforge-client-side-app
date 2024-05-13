@@ -30,11 +30,13 @@ export default function Banner() {
                 <h1 className="text-4xl font-bold text-white">
                   PIM FORGE ALWAYS CONNECT US.
                 </h1>
-                <Link to="/queries">
-                  <Button className="w-52 text-base bg-themeColor">
-                    All Queries
-                  </Button>
-                </Link>
+                <div className="mt-3">
+                  <Link to="/queries">
+                    <Button className="w-52 text-base bg-themeColor">
+                      All Queries
+                    </Button>
+                  </Link>
+                </div>
               </div>
             </div>
           </div>
@@ -53,11 +55,13 @@ export default function Banner() {
                 <h1 className="text-4xl font-bold text-white">
                   Alternative Quality Prouducts.
                 </h1>
-                <Link to="/queries">
-                  <Button className="w-52 text-base bg-themeColor">
-                    All Queries
-                  </Button>
-                </Link>
+                <div className="mt-3">
+                  <Link to="/queries">
+                    <Button className="w-52 text-base bg-themeColor">
+                      All Queries
+                    </Button>
+                  </Link>
+                </div>
               </div>
             </div>
           </div>
@@ -76,11 +80,13 @@ export default function Banner() {
                 <h1 className="text-4xl font-bold text-white">
                   Recommendation Quality Full Products.
                 </h1>
-                <Link to="/queries">
-                  <Button className="w-52 text-base bg-themeColor">
-                    All Queries
-                  </Button>
-                </Link>
+                <div className="mt-3">
+                  <Link to="/queries">
+                    <Button className="w-52 text-base bg-themeColor">
+                      All Queries
+                    </Button>
+                  </Link>
+                </div>
               </div>
             </div>
           </div>

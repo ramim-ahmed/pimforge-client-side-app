@@ -2,7 +2,7 @@
 
 Live site: client-side
 
-- [Trip-Trove](https://pim-forge-client-side.vercel.app/)
+- [pim-forge](https://pim-forge-client-side.vercel.app/)
 
 Features ✨:
 

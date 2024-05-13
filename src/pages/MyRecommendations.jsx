@@ -10,6 +10,7 @@ import {
 import useAuth from "@/hooks/useAuth";
 import useAxios from "@/hooks/useAxios";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
+import { Helmet } from "react-helmet-async";
 import { MdDelete } from "react-icons/md";
 import { BarLoader } from "react-spinners";
 import Swal from "sweetalert2";
@@ -80,62 +81,67 @@ export default function MyRecommendations() {
     });
   };
   return (
-    <div className="px-3 bg-gray-50 dark:bg-[#020817] py-10 min-h-screen">
-      <div className="max-w-6xl mx-auto bg-white dark:bg-[#020817c9] p-10 border">
-        <div>
-          <h1 className="text-xl font-medium">My Recommendations</h1>
-        </div>
-        <div className="mt-4">
-          <Table>
-            <TableHeader>
-              <TableRow>
-                <TableHead>#</TableHead>
-                <TableHead>Querie User</TableHead>
-                <TableHead>Querie Product Name</TableHead>
-                <TableHead>Recommendation Product Name</TableHead>
-                <TableHead>Action</TableHead>
-              </TableRow>
-            </TableHeader>
-            {data?.data?.data?.length === 0 ? (
-              <TableBody>
+    <>
+      <Helmet>
+        <title>PIM Forge | My Recommendations</title>
+      </Helmet>
+      <div className="px-3 bg-gray-50 dark:bg-[#020817] py-10 min-h-screen">
+        <div className="max-w-6xl mx-auto bg-white dark:bg-[#020817c9] p-10 border">
+          <div>
+            <h1 className="text-xl font-medium">My Recommendations</h1>
+          </div>
+          <div className="mt-4">
+            <Table>
+              <TableHeader>
                 <TableRow>
-                  <TableCell></TableCell>
-                  <TableCell></TableCell>
-                  <TableCell></TableCell>
-                  <TableCell className="text-red-500">
-                    My Recommendation Empty!!
-                  </TableCell>
-                  <TableCell></TableCell>
+                  <TableHead>#</TableHead>
+                  <TableHead>Querie User</TableHead>
+                  <TableHead>Querie Product Name</TableHead>
+                  <TableHead>Recommendation Product Name</TableHead>
+                  <TableHead>Action</TableHead>
                 </TableRow>
-              </TableBody>
-            ) : (
-              <TableBody>
-                {data?.data?.data?.map(
-                  ({ _id, productName, queryUser, name, querieId }, idx) => (
-                    <TableRow key={_id}>
-                      <TableCell>{idx + 1}</TableCell>
-                      <TableCell>{queryUser.name}</TableCell>
-                      <TableCell>{productName}</TableCell>
-                      <TableCell>{name}</TableCell>
-                      <TableCell>
-                        <Button
-                          onClick={() =>
-                            handleDeleteRecommendation(_id, querieId)
-                          }
-                          variant="outline"
-                          size="icon"
-                        >
-                          <MdDelete className="h-6 w-6 text-red-500" />
-                        </Button>
-                      </TableCell>
-                    </TableRow>
-                  )
-                )}
-              </TableBody>
-            )}
-          </Table>
+              </TableHeader>
+              {data?.data?.data?.length === 0 ? (
+                <TableBody>
+                  <TableRow>
+                    <TableCell></TableCell>
+                    <TableCell></TableCell>
+                    <TableCell></TableCell>
+                    <TableCell className="text-red-500">
+                      My Recommendation Empty!!
+                    </TableCell>
+                    <TableCell></TableCell>
+                  </TableRow>
+                </TableBody>
+              ) : (
+                <TableBody>
+                  {data?.data?.data?.map(
+                    ({ _id, productName, queryUser, name, querieId }, idx) => (
+                      <TableRow key={_id}>
+                        <TableCell>{idx + 1}</TableCell>
+                        <TableCell>{queryUser.name}</TableCell>
+                        <TableCell>{productName}</TableCell>
+                        <TableCell>{name}</TableCell>
+                        <TableCell>
+                          <Button
+                            onClick={() =>
+                              handleDeleteRecommendation(_id, querieId)
+                            }
+                            variant="outline"
+                            size="icon"
+                          >
+                            <MdDelete className="h-6 w-6 text-red-500" />
+                          </Button>
+                        </TableCell>
+                      </TableRow>
+                    )
+                  )}
+                </TableBody>
+              )}
+            </Table>
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 }

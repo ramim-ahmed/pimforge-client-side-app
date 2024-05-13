@@ -8,7 +8,7 @@ export default function Register() {
   return (
     <div className="bg-[#D9D9D9]">
       <Helmet>
-        <title>Register</title>
+        <title>PIM Forge | Register</title>
       </Helmet>
       <div className="h-[850px] flex justify-center items-center">
         <div className="lg:w-1/4">

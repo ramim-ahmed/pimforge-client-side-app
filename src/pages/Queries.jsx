@@ -68,6 +68,11 @@ export default function Queries() {
             )}
           </div>
         </div>
+        {data?.data?.data?.length <= 0 && (
+          <div className="flex justify-center mt-10">
+            <h1 className="text-lg font-bold">Queries Not Found!!</h1>
+          </div>
+        )}
         {isLoading ? (
           <div className="flex justify-center items-center mt-6">
             <BarLoader />

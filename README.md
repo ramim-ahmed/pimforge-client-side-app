@@ -4,10 +4,6 @@ Live site: client-side
 
 - [Trip-Trove](https://pim-forge-client-side.vercel.app/)
 
-github_repo: server-side
-
-- [PIM Forge](https://github.com/programming-hero-web-course-4/b9a10-server-side-ramim-ahmed)
-
 Features ✨:
 
 <ul>
@@ -35,10 +31,3 @@ Tech Uses 🔥:
 - [React-Spinner](https://www.npmjs.com/package/react-spinners) : that allows to use beautifully design spinner like that showing when data loaded or fetch.
 - [Swiper](https://swiperjs.com/) :that allows help pre build slider use to application.
 - [React-Hook-Form](https://react-hook-form.com/): that allows to form handling with validation
-- [Swiper](https://swiperjs.com/) :that allows help pre build slider use to application.
-
-Challenges Requirements npm I Use ✨:
-
-- [React-Awesome-Reveal](https://www.npmjs.com/package/react-awesome-reveal): That allows to easy to use simple animation library
-
-- [React-Simple-Typewriter](https://www.npmjs.com/package/react-simple-typewriter):Adding a nice typewriter effect to your project.

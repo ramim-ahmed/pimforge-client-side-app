@@ -6,7 +6,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 import useAuth from "@/hooks/useAuth";
 import { Button } from "./ui/button";
-
+import { Link } from "react-router-dom";
 export default function UserProfile() {
   const { authUser, logout } = useAuth();
   return (
@@ -19,19 +19,45 @@ export default function UserProfile() {
               className="w-10 border border-themeColor h-10 rounded-full object-cover"
               alt=""
             />
+            <h3 className="font-medium hidden sm:block">
+              Hi, {authUser?.displayName}
+            </h3>
           </div>
         </DropdownMenuTrigger>
         <DropdownMenuContent className="w-52">
-          <DropdownMenuItem>
-            <Button variant="outline" className="w-full cursor-pointer">
-              {authUser?.displayName}
-            </Button>
-          </DropdownMenuItem>
+          <Link to="/add-querie">
+            <DropdownMenuItem>
+              <Button variant="outline" className="w-full">
+                Add Querie
+              </Button>
+            </DropdownMenuItem>
+          </Link>
+          <Link to="/my-queries">
+            <DropdownMenuItem>
+              <Button variant="outline" className="w-full">
+                My Queries
+              </Button>
+            </DropdownMenuItem>
+          </Link>
+          <Link to="/my-recommendations">
+            <DropdownMenuItem>
+              <Button variant="outline" className="w-full">
+                My Recommendations
+              </Button>
+            </DropdownMenuItem>
+          </Link>
+          <Link to="/recommendations-for-me">
+            <DropdownMenuItem>
+              <Button variant="outline" className="w-full">
+                Recommendations For Me
+              </Button>
+            </DropdownMenuItem>
+          </Link>
           <DropdownMenuItem>
             <Button
               onClick={() => logout()}
               variant="outline"
-              className="w-full cursor-pointer"
+              className="w-full"
             >
               Logout
             </Button>

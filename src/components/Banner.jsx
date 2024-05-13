@@ -5,6 +5,7 @@ import "swiper/css";
 import "swiper/css/navigation";
 import { Navigation } from "swiper/modules";
 import { Button } from "./ui/button";
+import { Link } from "react-router-dom";
 export default function Banner() {
   return (
     <div className="max-w-6xl mx-auto px-3 mt-10">
@@ -29,9 +30,11 @@ export default function Banner() {
                 <h1 className="text-4xl font-bold text-white">
                   PIM FORGE ALWAYS CONNECT US.
                 </h1>
-                <Button className="w-52 text-base bg-themeColor">
-                  All Queries
-                </Button>
+                <Link to="/queries">
+                  <Button className="w-52 text-base bg-themeColor">
+                    All Queries
+                  </Button>
+                </Link>
               </div>
             </div>
           </div>
@@ -50,9 +53,11 @@ export default function Banner() {
                 <h1 className="text-4xl font-bold text-white">
                   Alternative Quality Prouducts.
                 </h1>
-                <Button className="w-52 text-base bg-themeColor">
-                  All Queries
-                </Button>
+                <Link to="/queries">
+                  <Button className="w-52 text-base bg-themeColor">
+                    All Queries
+                  </Button>
+                </Link>
               </div>
             </div>
           </div>
@@ -71,9 +76,11 @@ export default function Banner() {
                 <h1 className="text-4xl font-bold text-white">
                   Recommendation Quality Full Products.
                 </h1>
-                <Button className="w-52 text-base bg-themeColor">
-                  All Queries
-                </Button>
+                <Link to="/queries">
+                  <Button className="w-52 text-base bg-themeColor">
+                    All Queries
+                  </Button>
+                </Link>
               </div>
             </div>
           </div>

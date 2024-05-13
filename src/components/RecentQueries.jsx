@@ -17,7 +17,7 @@ export default function RecentQueries() {
     );
   }
   return (
-    <div className="py-10 max-w-6xl mx-auto px-3">
+    <div className="pb-10 max-w-6xl mx-auto px-3 mt-10">
       <div>
         <h1 className="text-center text-3xl font-semibold">
           Top Recent Queries

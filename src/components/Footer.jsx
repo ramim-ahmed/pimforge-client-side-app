@@ -9,9 +9,10 @@ export default function Footer() {
           <div className="lg:w-2/5 md:w-1/2 w-full">
             <h1 className="font-bold text-xl">PIM FORGE</h1>
             <p className="mt-2 pr-10">
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Odit quo
-              accusamus nisi minus neque incidunt delectus, nam perspiciatis
-              earum ipsum?
+              PIM Forge basically a alternative product system platform that
+              serves as an alternative or recommendation to traditional Product
+              Information Management (PIM) systems for managing product data and
+              related processes.
             </p>
             <div className="mt-5 flex justify-center md:justify-start">
               <div>

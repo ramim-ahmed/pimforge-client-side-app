@@ -46,7 +46,9 @@ export default function MyQueries() {
                 To Manage My Queries Product.
               </h1>
               <Link to="/add-querie">
-                <Button className="w-28 text-white">Add Querie</Button>
+                <Button className="w-28 text-white dark:bg-[#020817] dark:text-white dark:border dark:border-white">
+                  Add Querie
+                </Button>
               </Link>
             </div>
           </div>

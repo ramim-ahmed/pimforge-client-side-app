@@ -61,9 +61,9 @@ export default function MyQuerie({ item }) {
   };
   return (
     <motion.div
-      initial={{ opacity: 0 }}
-      whileInView={{ opacity: 1 }}
-      transition={{ duration: 0.5 }}
+      initial={{ y: 200, opacity: 0 }}
+      whileInView={{ y: 1, opacity: 1 }}
+      transition={{ duration: 1.2 }}
       className="border p-3 flex flex-col justify-between rounded-md"
     >
       <div className="flex justify-center bg-gray-50 p-4">

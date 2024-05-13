@@ -6,7 +6,7 @@ export default function RecommendProduct({ item }) {
 
   return (
     <div className="border p-3">
-      <div>
+      <div className="flex justify-center bg-gray-50 p-3">
         <img className="rounded" src={image} alt="" />
       </div>
       <div className="mt-4">

@@ -11,6 +11,7 @@ Features ✨:
     <li>Manage querie his/her added</li>
     <li>Authentication with firebase</li>
     <li>Search Implementation in queries page from backend</li>
+    <li>Implementation Pagination optimize way to data showing in front-end</li>
     <li>Implement Private/Protected Route.</li>
     <li>Responsive all devices.</li>
 </ul>

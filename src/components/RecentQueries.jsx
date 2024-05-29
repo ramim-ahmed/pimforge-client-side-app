@@ -2,7 +2,9 @@ import { useQuery } from "@tanstack/react-query";
 import Querie from "./Querie";
 import useAxios from "@/hooks/useAxios";
 import { BarLoader } from "react-spinners";
-
+import { Button } from "./ui/button";
+import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 export default function RecentQueries() {
   const axiosIntance = useAxios();
   const { data, isLoading } = useQuery({
@@ -28,6 +30,16 @@ export default function RecentQueries() {
           <Querie key={item._id} item={item} />
         ))}
       </div>
+      <motion.div
+        initial={{ y: 200, opacity: 0 }}
+        whileInView={{ y: 1, opacity: 1 }}
+        transition={{ duration: 1.2 }}
+        className="mt-8 flex justify-center"
+      >
+        <Link to="/queries">
+          <Button className="w-48">View All Queries</Button>
+        </Link>
+      </motion.div>
     </div>
   );
 }

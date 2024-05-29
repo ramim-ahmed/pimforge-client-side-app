@@ -10,16 +10,35 @@ import { Input } from "@/components/ui/input";
 import { BsGrid3X2GapFill } from "react-icons/bs";
 import { HiViewGrid } from "react-icons/hi";
 import { Helmet } from "react-helmet-async";
+import Pagination from "@/components/Pagination";
+import { motion } from "framer-motion";
 export default function Queries() {
+  const [currentPage, setCurrentPage] = useState(1);
   const axiosIntance = useAxios();
   const searchInputRef = useRef();
   const [isLayout, setIsLayout] = useState(false);
   const [searchValue, setSearchValue] = useState("");
   const { data, isLoading } = useQuery({
-    queryKey: ["queries", searchValue],
+    queryKey: ["queries", searchValue, currentPage],
     queryFn: async () =>
-      await axiosIntance.get(`/queries?searchTerm=${searchValue}`),
+      await axiosIntance.get(
+        `/queries?searchTerm=${searchValue}&page=${currentPage}&limit=${6}`
+      ),
   });
+  const paginate = Math.ceil(data?.data?.meta?.total / 6);
+
+  const handleNextPage = () => {
+    setCurrentPage((prev) => prev + 1);
+  };
+  const handlePrevPage = () => {
+    if (currentPage > 1) {
+      setCurrentPage((prev) => prev - 1);
+    }
+  };
+
+  const handleSelectPage = (page) => {
+    setCurrentPage(page);
+  };
 
   const handleSearch = () => {
     setSearchValue(searchInputRef.current.value);
@@ -95,6 +114,24 @@ export default function Queries() {
               ))}
             </div>
           )}
+
+          {/* pagination */}
+          <motion.div
+            initial={{ y: 200, opacity: 0 }}
+            whileInView={{ y: 1, opacity: 1 }}
+            transition={{ duration: 1.2 }}
+            className="pt-10 flex justify-end"
+          >
+            {data?.data?.data?.length > 0 && (
+              <Pagination
+                currentPage={currentPage}
+                handlePrevPage={handlePrevPage}
+                handleNextPage={handleNextPage}
+                paginate={paginate}
+                handleSelectPage={handleSelectPage}
+              />
+            )}
+          </motion.div>
         </div>
       </div>
     </>

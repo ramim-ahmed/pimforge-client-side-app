@@ -3,7 +3,7 @@ import { useEffect } from "react";
 import "../firebase";
 import { getAuth, signOut } from "firebase/auth";
 const axiosIntance = axios.create({
-  baseURL: "https://pim-forge-server.vercel.app/api/v1",
+  baseURL: "https://pim-forge-server-side-app.vercel.app/api/v1",
 });
 
 export default function useAxios() {

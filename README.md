@@ -2,7 +2,7 @@
 
 Live site: client-side
 
-- [pim-forge](https://pim-forge-client-side.vercel.app/)
+- [pim-forge](https://pim-forge-client-app.vercel.app/)
 
 Features ✨:
 
